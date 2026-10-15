@@ -136,6 +136,11 @@ p {
   background: var(--canvas);
   border-bottom: 1px solid var(--strong);
 }
+.site-header a:focus-visible,
+.site-header button:focus-visible {
+  outline-width: 2px;
+  outline-offset: 2px;
+}
 .nav {
   min-height: var(--header-height);
   display: flex;
