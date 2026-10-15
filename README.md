@@ -4,7 +4,7 @@ CodexSubsManager is a standalone Windows tray companion for managing multiple Ch
 
 **Download:** [Latest Windows release](https://github.com/0xmdrakib/CodexSubsManager/releases/latest)
 
-**Website:** The project landing page is in [`website/`](./website/), ready to deploy on Vercel.
+**Live website:** https://codexsubsmanager.vercel.app
 
 ---
 
