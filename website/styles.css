@@ -23,7 +23,7 @@
   --active: #1f1f1f;
   --hairline: #e5e5e5;
   --radius: 24px;
-  --header-height: 72px;
+  --header-height: 56px;
 }
 * {
   box-sizing: border-box;
@@ -155,6 +155,16 @@ p {
 .brand img {
   border-radius: 10px;
 }
+.site-header .brand {
+  gap: 8px;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+}
+.site-header .brand img {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+}
 .brand-dot {
   color: var(--pink);
 }
@@ -169,7 +179,7 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  min-height: 44px;
+  min-height: 36px;
 }
 .nav-links .icon {
   width: 15px;
@@ -196,8 +206,9 @@ p {
   background: var(--active);
 }
 .button-small {
-  min-height: 44px;
-  padding: 12px 17px;
+  min-height: 36px;
+  padding: 8px 14px;
+  font-size: 12px;
 }
 .text-link {
   display: inline-flex;
@@ -220,26 +231,24 @@ p {
   height: 44px;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  gap: 4px;
   padding: 0;
   line-height: 0;
 }
-.menu-toggle span {
+.menu-toggle svg {
   display: block;
-  width: 18px;
-  height: 2px;
-  flex: 0 0 2px;
-  border-radius: 1px;
-  background: var(--ink);
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
 }
 .hero {
   display: grid;
   grid-template-columns: 1.12fr 1fr;
-  align-items: center;
+  align-items: start;
   gap: 20px;
-  min-height: 610px;
-  padding-block: 80px 64px;
+  padding-block: 40px;
 }
 .eyebrow {
   font-size: 11px;
@@ -841,13 +850,9 @@ h2 {
 @media (min-width: 1441px) {
   .hero {
     gap: 60px;
-    min-height: 650px;
   }
   .hero-description {
     max-width: 495px;
-  }
-  .hero-art {
-    max-height: 480px;
   }
   .clay-hero {
     width: 112%;
@@ -862,8 +867,7 @@ h2 {
   }
   .hero {
     gap: 0;
-    min-height: 570px;
-    padding-top: 70px;
+    padding-top: 36px;
   }
   h1 {
     font-size: 61px;
@@ -938,7 +942,6 @@ h2 {
   }
   .hero {
     grid-template-columns: 1.18fr 1fr;
-    min-height: 540px;
   }
   h1 {
     font-size: 53px;
@@ -984,9 +987,6 @@ h2 {
   }
 }
 @media (max-width: 767px) {
-  :root {
-    --header-height: 64px;
-  }
   .container {
     width: calc(100% - 40px);
   }
@@ -1254,16 +1254,21 @@ h2 {
     gap: 25px;
     text-align: center;
   }
+  .footer-content > div {
+    width: 100%;
+  }
   .footer-links {
+    display: flex;
+    flex-wrap: wrap;
     gap: 12px 26px;
     width: 100%;
-    grid-template-columns: max-content max-content;
     justify-content: center;
   }
   .footer-links a {
     justify-content: center;
   }
   .footer-links > span {
+    flex-basis: 100%;
     margin-top: 0;
   }
 }
