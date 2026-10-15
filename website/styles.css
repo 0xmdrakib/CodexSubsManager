@@ -23,7 +23,7 @@
   --active: #1f1f1f;
   --hairline: #e5e5e5;
   --radius: 24px;
-  --header-height: 56px;
+  --header-height: 64px;
 }
 * {
   box-sizing: border-box;
@@ -162,12 +162,12 @@ p {
 }
 .site-header .brand {
   gap: 8px;
-  font-size: 16px;
+  font-size: 17px;
   letter-spacing: -0.5px;
 }
 .site-header .brand img {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 8px;
 }
 .brand-dot {
@@ -184,7 +184,7 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  min-height: 36px;
+  min-height: 40px;
 }
 .nav-links .icon {
   width: 15px;
@@ -211,9 +211,9 @@ p {
   background: var(--active);
 }
 .button-small {
-  min-height: 36px;
-  padding: 8px 14px;
-  font-size: 12px;
+  min-height: 40px;
+  padding: 10px 16px;
+  font-size: 13px;
 }
 .text-link {
   display: inline-flex;
@@ -251,7 +251,7 @@ p {
 .hero {
   display: grid;
   grid-template-columns: 1.12fr 1fr;
-  align-items: start;
+  align-items: center;
   gap: 20px;
   padding-block: 40px;
 }
@@ -325,9 +325,9 @@ h1 {
   min-width: 0;
 }
 .clay-hero {
-  width: 110%;
+  width: 100%;
   max-width: none;
-  margin-top: 26px;
+  margin-top: 20px;
 }
 .art-note {
   position: absolute;
@@ -860,7 +860,7 @@ h2 {
     max-width: 495px;
   }
   .clay-hero {
-    width: 112%;
+    width: 100%;
   }
 }
 @media (max-width: 1100px) {
@@ -872,7 +872,7 @@ h2 {
   }
   .hero {
     gap: 0;
-    padding-top: 36px;
+    padding-block: 36px;
   }
   h1 {
     font-size: 61px;
@@ -956,7 +956,7 @@ h2 {
     font-size: 15px;
   }
   .clay-hero {
-    width: 112%;
+    width: 100%;
   }
   .art-tag {
     bottom: 14px;
