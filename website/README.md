@@ -1,6 +1,6 @@
 # Project website
 
-**Live website:** https://codexsubsmanager.vercel.app
+**Live website:** https://codex.rakibhq.xyz
 
 A static, dependency-free landing page for CodexSubsManager. Product copy and downloads deliberately have no release version to maintain. All three download buttons point to `https://github.com/0xmdrakib/CodexSubsManager/releases/latest`.
 

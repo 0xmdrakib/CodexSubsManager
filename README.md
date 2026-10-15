@@ -1,10 +1,10 @@
 # CodexSubsManager
 
-CodexSubsManager is a standalone Windows tray companion for managing multiple ChatGPT subscription accounts in official Codex.
+CodexSubsManager is a Windows tray app for managing Codex subscription accounts, switching sign-ins, and tracking usage limits.
+
+**Live website:** https://codex.rakibhq.xyz
 
 **Download:** [Latest Windows release](https://github.com/0xmdrakib/CodexSubsManager/releases/latest)
-
-**Website:** [codex.rakibhq.xyz](https://codex.rakibhq.xyz) · [Vercel mirror](https://codexsubsmanager.vercel.app)
 
 ---
 
@@ -12,107 +12,59 @@ CodexSubsManager is a standalone Windows tray companion for managing multiple Ch
 
 CodexSubsManager is built for two core flows:
 
-- **Manual switching:** Keep your saved Codex accounts together and select the account you want to use.
-- **Automatic switching:** Optionally move to the next eligible account in your priority order when fresh reported quota is exhausted.
+- **Manual switching:** Save your accounts and choose which one to use in Codex.
+- **Automatic switching:** Optionally switch to the next eligible account in your priority order when reported quota runs out.
 
-The app focuses on keeping account management clear and local. Usage bars show the limits actually reported by Codex, credentials are protected for your Windows user, and existing Codex configuration and local workspace history stay in place.
-
-The desktop executable is named `CodexAccounts.exe`, and its window is titled **Codex Accounts**.
+Sign-ins stay local, usage limits stay visible, and your Codex configuration and local workspace history stay in place.
 
 ## Features
 
-- Multiple saved ChatGPT subscription accounts with manual switching
-- Configurable account priority and optional automatic selection
-- Separate remaining-quota bars and reset times for every reported usage window
-- Five-hour and weekly limits together when both are reported; weekly-only display when applicable
-- Usage refresh on startup, after adding or importing accounts, and every 30 seconds by default
-- Manual refresh and a configurable refresh interval
-- Idle checks, fresh-usage checks, and a cooldown before automatic switching
-- Windows DPAPI protection for saved credentials
-- Password-protected portable account backups
-- System tray controls and an optional Ctrl + Alt + A shortcut
-- Optional quiet startup with Windows
-- Light and dark appearances with locally bundled icons
-- Graceful Codex restart when switching a running desktop session
-- Switch rollback and interrupted-switch recovery
-- Clean return to official Codex, with optional vault removal
-- A lightweight project website with downloads linked to GitHub Releases
+- Multiple saved accounts with manual switching and configurable priority
+- Optional automatic switching with idle checks and a cooldown
+- Separate five-hour and weekly usage bars when reported
+- Automatic refresh every 30 seconds and after adding or importing accounts
+- Windows-encrypted credentials and password-protected account backups
+- System tray controls, keyboard shortcut, and optional Windows startup
+- Light and dark appearances
+- Switch recovery and a clean return to official Codex
+- Standalone EXE, also available in a ZIP containing only that EXE
 
 ## Supported platforms
 
 - Windows x64
-- An installed official Codex desktop client and CLI are required for account operations
-- The standalone EXE includes its .NET runtime; end users do not need a development SDK
+- Official Codex desktop app and CLI required for account operations
+- No separate .NET installation required to run the app
 
 ## Switching behavior
 
 ### Manual
 
-Select **Switch account** beside a saved account. The manager checks the target sign-in and blocks a switch when Codex is busy. If the desktop client is running, it closes gracefully and reopens with the selected sign-in.
-
-Adding an account does not change the active Codex sign-in. Local project files and chat history stay in the same Codex home. Account-specific permissions, cloud conversations, and external connections depend on the selected account.
+Select **Switch account** beside a saved account. The manager checks the sign-in and gracefully restarts Codex when needed. Adding an account does not switch your active sign-in.
 
 ### Automatic
 
-Enable automatic selection in **Preferences**. Accounts are considered in your chosen priority order using fresh usage and backend permission. Unknown, stale, disabled, and exhausted accounts are skipped. The manager waits for Codex to be idle and pauses if activity cannot be verified.
-
-Finish active Codex work before switching. A model response already in progress is not continued across an account change. Close other Codex terminal or editor sessions that share the sign-in before switching.
+Enable automatic switching in **Preferences**. The manager follows your priority order, checks fresh quota, and waits for Codex to be idle. Finish active tasks before switching; an in-progress response cannot continue across accounts.
 
 ## Usage limits
 
-Limits are read dynamically rather than inferred from a subscription label. Each reported window gets its own remaining-quota bar and reset time; additional usage pools are labeled separately.
+Each limit reported by Codex gets its own bar and reset time. Five-hour and weekly limits appear together when both are available; weekly-only accounts show a single bar.
 
-Checks never overlap. At the default setting, the next check starts 30 seconds after the previous operation finishes. Cached values are marked when a request fails and are retried automatically. Accounts marked **Manual only** still receive usage updates. A paused manager does not poll automatically.
+## Account storage
 
-## Account storage and backups
-
-Saved credentials and transaction backups use Windows DPAPI for the current Windows user. The vault is stored under `%LOCALAPPDATA%\CodexAccounts`, separately from the executable and source code. Account data is not included in the executable or this repository.
-
-Use **Preferences > Export backup** to create a password-protected portable account bundle. Import it on another PC with the same export password, or sign in again there. Copying raw DPAPI vault files is not a portable backup.
-
-To stop using the manager, choose **Return to official Codex**. Keep the current account or restore the saved original sign-in, and optionally remove the manager's vault. This disables the manager's startup integration and automation without deleting Codex configuration or chat history.
-
-## Getting started
-
-1. Download `CodexAccounts.exe` from [GitHub Releases](https://github.com/0xmdrakib/CodexSubsManager/releases/latest), or download the ZIP and extract its single `CodexAccounts.exe` file.
-2. Run it from a permanent folder on your Windows PC.
-3. Choose **Import existing** for your current Codex sign-in, or **Add account** for another official browser sign-in.
-4. Use **Switch account**, or configure automatic selection in **Preferences**.
-
-Close or minimize the popup to keep it in the system tray. Choose **Quit manager** from the tray menu to stop it for the current Windows session. See [`START_HERE.md`](./START_HERE.md) for detailed instructions.
+Credentials are encrypted for your Windows user and stored separately from Codex configuration. Use password-protected backups to move accounts between PCs. See the [quick guide](./START_HERE.md) for setup, backups, and clean removal.
 
 ## Tech stack
 
 - C# and .NET 10
-- WPF desktop interface
+- WPF
 - Windows DPAPI and native system tray integration
-- Official Codex app-server integration
-- Dependency-free HTML, CSS, and JavaScript for the website
-- Self-hosted Inter font and optimized local artwork
-- Vercel static hosting configuration
-
-## Development
-
-Development requires Windows, PowerShell, and the .NET 10 SDK with `dotnet` on PATH. The app has no third-party NuGet package dependencies.
-
-```powershell
-# Build and run the regression suite.
-.\build.ps1 -Test
-
-# Create a self-contained EXE and portable ZIP without replacing a running copy.
-.\build.ps1 -Test -Publish -SkipDirect
-```
-
-Generated builds go into `artifacts/`. The release ZIP contains only `CodexAccounts.exe` at its root; readable documentation and checksums remain separate build outputs. Quit the manager before replacing its running EXE. The existing standalone release passed 55 core regression checks, light/dark rendering checks, standalone deployment checks, and live usage-refresh verification. Live cross-account switching was not included in those automated checks.
-
-## Website
-
-The static landing page is in [`website/`](./website/). Its download buttons point to the repository's latest GitHub Release, so there is no version number to update in the page.
-
-Import this repository into Vercel using the repository root. The included [`vercel.json`](./vercel.json) selects `website/` as the output directory and skips dependency installation and building. No environment variables are required. See [`website/README.md`](./website/README.md) for asset credits and local preview instructions.
+- Codex app-server integration
+- HTML, CSS, and JavaScript
 
 ---
 
 ## License
 
-This project is licensed under the [MIT License](./LICENSE). Third-party code, fonts, icons, and bundled Microsoft components retain their respective notices in [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md) and [`licenses/`](./licenses/). CodexSubsManager is an independent companion, not an official OpenAI product.
+This project is licensed under the [MIT License](./LICENSE). Third-party notices are listed in [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).
+
+CodexSubsManager is an independent companion and is not affiliated with OpenAI.
