@@ -20,6 +20,7 @@ Run the command from the repository root and open the printed localhost URL. The
 - `assets/inter.woff2`: Inter variable font from [the official Inter project](https://rsms.me/inter/). SIL Open Font License in `assets/Inter-OFL.txt`.
 - Interface symbols follow the project's Lucide icon set. ISC/MIT notices are in `assets/Lucide-LICENSE.txt` and the root third-party notices.
 - `assets/clay-accounts.webp`: original artwork made with the built-in image generation tool, then refined for smoother surfaces at the user's request. The selected transparent image is optimized to WebP without changing its composition.
+- `assets/social-preview.png`: the user-approved social preview, generated with the built-in image tool using the existing artwork and app icon as references, then exported at 1200 × 630 as an opaque PNG. Open Graph and X/Twitter metadata use its absolute HTTPS URL.
 
 ### Generation prompt
 
@@ -28,6 +29,24 @@ Use case: stylized-concept. Asset type: original transparent hero illustration f
 ### Refinement prompt
 
 Refine this exact transparent 3D hero artwork to feel smoother and more premium. Preserve the same composition, three account tiles, recessed avatar forms, terminal block with raised >\_ glyph, pink arch, ochre ball, colors and object arrangement. Replace the rough porous/grainy clay surface with finely finished, velvety smooth matte clay: clean continuous surfaces, beautifully rounded edges, subtle soft satin highlights, no visible pits or grain. Use refined large-softbox studio lighting, softer ambient occlusion, gentle contact shadows and graceful light gradients. Keep depth and the tactile sculpted character; avoid harsh gloss or plastic glare. Keep true background transparency and uncropped silhouettes. Do not add text, branding, shapes or objects.
+
+### Social preview prompt
+
+Use case: ads-marketing / compositing.
+Create ONE finished horizontal social-sharing Open Graph preview card for the Windows desktop project CodexSubsManager. This is a preview for the user's approval.
+Canvas: exactly 1200 x 630 pixels, wide 1.9048:1 aspect ratio, opaque warm ivory background #fffaf0 all the way to the edges.
+Reference image 1 (clay-accounts.webp): the existing project artwork. Preserve its recognizable smooth premium 3D account tiles: lavender, peach and mint profile cards, a dark teal terminal tile with the ivory >_ symbol, pink arch and ochre sphere. Recompose this complete illustration cleanly on the RIGHT, contained inside the canvas without cropping the important shapes. Remove any stray specks, ghost pixels or cutout artifacts. Soft natural studio shadows only.
+Reference image 2 (app-icon.png): the user-supplied app logo. Reproduce the blue/violet terminal emblem faithfully as a small crisp logo next to the project name in the upper LEFT.
+Overall design: premium, restrained editorial technology branding matching the existing cream-and-black website. Flat clean background, crisp black modern sans-serif typography similar to Inter, balanced spacing, no heavy gradients, no mock browser chrome.
+Composition: safe margins around 58 px. Left text region approximately 55% width, illustration on the right 45%. Small logo and name near upper-left. Large two-line headline below, vertically balanced with the illustration. Keep all text comfortably inside the crop-safe area and fully legible at a small thumbnail size.
+Text, EXACTLY and ONLY:
+"CodexSubsManager"
+"Many accounts."
+"One workspace."
+"Your Codex accounts, organized."
+"codex.rakibhq.xyz"
+Headline must show "Many accounts." on its own line and "One workspace." on the next line. One subtle lavender curved underline beneath "workspace." mirrors the website. Project name in smaller semibold type, headline in large elegant medium-weight type, supporting sentence and domain in restrained smaller type.
+Constraints: exact spelling and capitalization; English text only; no added claims; no OpenAI logo; no buttons; no badges; no extra labels; no watermark; no decorative border; no duplicated elements; no checkerboard or transparent background.
 
 ## Hosting
 
