@@ -51,7 +51,7 @@ if ($Publish) {
     ($taskExeHash + '  CodexAccounts.exe') | Set-Content -LiteralPath (Join-Path $taskPublish 'SHA256SUMS.txt') -Encoding ascii
     $taskZipName = "CodexAccounts-$taskVersion-win-x64.zip"
     $taskZip = Join-Path $taskRoot ('artifacts/' + $taskZipName)
-    Compress-Archive -LiteralPath $taskPublish -DestinationPath $taskZip -CompressionLevel Optimal -Force
+    Compress-Archive -LiteralPath (Join-Path $taskPublish 'CodexAccounts.exe') -DestinationPath $taskZip -CompressionLevel Optimal -Force
     $taskZipHash = (Get-FileHash -LiteralPath $taskZip -Algorithm SHA256).Hash.ToLowerInvariant()
     @("$taskExeHash  $taskPublishName/CodexAccounts.exe", "$taskZipHash  $taskZipName") | Set-Content -LiteralPath (Join-Path $taskRoot 'artifacts/SHA256SUMS.txt') -Encoding ascii
 }

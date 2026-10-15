@@ -23,13 +23,14 @@
   --active: #1f1f1f;
   --hairline: #e5e5e5;
   --radius: 24px;
+  --header-height: 72px;
 }
 * {
   box-sizing: border-box;
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 96px;
+  scroll-padding-top: calc(var(--header-height) + 8px);
 }
 body {
   margin: 0;
@@ -95,6 +96,7 @@ p {
   margin-top: 96px;
 }
 .icon {
+  display: block;
   width: 19px;
   height: 19px;
   fill: none;
@@ -107,6 +109,7 @@ p {
 }
 .icon-library {
   position: absolute;
+  inset: 0 auto auto 0;
   width: 0;
   height: 0;
   overflow: hidden;
@@ -129,11 +132,12 @@ p {
   position: sticky;
   top: 0;
   z-index: 50;
+  isolation: isolate;
   background: var(--canvas);
   border-bottom: 1px solid var(--strong);
 }
 .nav {
-  min-height: 88px;
+  min-height: var(--header-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -217,12 +221,16 @@ p {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
+  padding: 0;
+  line-height: 0;
 }
 .menu-toggle span {
   display: block;
   width: 18px;
-  height: 1.5px;
+  height: 2px;
+  flex: 0 0 2px;
+  border-radius: 1px;
   background: var(--ink);
 }
 .hero {
@@ -976,6 +984,9 @@ h2 {
   }
 }
 @media (max-width: 767px) {
+  :root {
+    --header-height: 64px;
+  }
   .container {
     width: calc(100% - 40px);
   }
@@ -983,7 +994,7 @@ h2 {
     margin-top: 64px;
   }
   .nav {
-    min-height: 74px;
+    min-height: var(--header-height);
   }
   .brand {
     font-size: 17px;
@@ -1000,7 +1011,7 @@ h2 {
   .nav-links {
     display: none;
     position: absolute;
-    top: 74px;
+    top: 100%;
     left: 0;
     right: 0;
     background: var(--canvas);
@@ -1203,6 +1214,7 @@ h2 {
   .faq h2 {
     font-size: 31px;
     max-width: none;
+    text-align: center;
   }
   .faq-list summary {
     font-size: 13px;
@@ -1211,6 +1223,10 @@ h2 {
     padding: 32px 28px;
     grid-template-columns: 1fr;
     gap: 16px;
+    text-align: center;
+  }
+  .download-band .eyebrow {
+    justify-content: center;
   }
   .download-band h2 {
     font-size: 36px;
@@ -1233,12 +1249,19 @@ h2 {
     padding-block: 32px;
   }
   .footer-content {
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     gap: 25px;
+    text-align: center;
   }
   .footer-links {
     gap: 12px 26px;
+    width: 100%;
+    grid-template-columns: max-content max-content;
+    justify-content: center;
+  }
+  .footer-links a {
+    justify-content: center;
   }
   .footer-links > span {
     margin-top: 0;

@@ -4,7 +4,7 @@
 
 Copyright (c) 2026 Codex Profile Overlay contributors. Used under the MIT license, reproduced in `licenses/CodexProfileOverlay-MIT.txt`.
 
-The standalone executable bundles Microsoft .NET and WPF runtime components. Application, adapted-source, and Microsoft license notices are embedded in the executable and accessible through **About Codex Accounts > Software licenses**. Readable copies are also included in the portable package's `licenses` directory.
+The standalone executable bundles Microsoft .NET and WPF runtime components. Application, adapted-source, and Microsoft license notices are embedded in the executable and accessible through **About Codex Accounts > Software licenses**. Readable copies are available in the repository's `licenses` directory and separate build outputs; the release ZIP contains only the EXE.
 
 Cockpit Tools, CodexBar, codex-auth, and Relay informed the source research and design. Their source is not bundled into the product beyond the specifically attributed Windows shutdown coordinator above.
 

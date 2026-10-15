@@ -52,7 +52,7 @@ Select **Preferences > Export backup** and choose a password of at least 12 char
 
 ## Disconnect or remove the manager
 
-1. Select **Return to official Codex**, or run **Return to official Codex.cmd** from the app folder.
+1. Select **Return to official Codex**. If you also downloaded the source repository, its **Return to official Codex.cmd** shortcut is an alternative when placed beside the EXE.
 2. Keep the current account, which is recommended, or restore the sign-in saved before your first switch. An expired original sign-in may require login again.
 3. Leave **Permanently delete my saved accounts and settings** unchecked if you may use the manager again. Select it only to erase the manager's own vault.
 4. Select **Return to Codex**. The manager disables its automation, shortcut, and optional startup entry, then exits.
@@ -64,8 +64,8 @@ If you keep your saved accounts, open the app again and select **Resume**. Autom
 
 ## Storage and compatibility
 
-Credentials are encrypted for your current Windows user under `%LOCALAPPDATA%\CodexAccounts`. No account data is stored beside the executable. The runtime, icons, help, and license notices are inside the EXE. The ZIP's extra files are optional readable documentation, a removal shortcut, and checksums; the app itself can run without them.
+Credentials are encrypted for your current Windows user under `%LOCALAPPDATA%\CodexAccounts`. No account data is stored beside the executable. The runtime, icons, help, and license notices are inside the EXE. The release ZIP contains only `CodexAccounts.exe`, with no extra files or nested folders.
 
 This build supports default file credential storage and explicitly configured direct Windows keyring storage. Unsupported encrypted-secrets, ephemeral, or API-key-only modes are refused without rewriting Codex configuration. Advanced settings can select the installed Codex CLI and desktop executables if automatic detection fails.
 
-The package includes the source build's validation notes. Real paid-account browser login and switching have not been performed during development; the first sign-ins require the account owner.
+Validation notes are available in the repository README. Real paid-account browser login and switching have not been performed during development; the first sign-ins require the account owner.

@@ -4,7 +4,7 @@ CodexSubsManager is a standalone Windows tray companion for managing multiple Ch
 
 **Download:** [Latest Windows release](https://github.com/0xmdrakib/CodexSubsManager/releases/latest)
 
-**Live website:** https://codexsubsmanager.vercel.app
+**Website:** [codex.rakibhq.xyz](https://codex.rakibhq.xyz) · [Vercel mirror](https://codexsubsmanager.vercel.app)
 
 ---
 
@@ -74,7 +74,7 @@ To stop using the manager, choose **Return to official Codex**. Keep the current
 
 ## Getting started
 
-1. Download `CodexAccounts.exe` from [GitHub Releases](https://github.com/0xmdrakib/CodexSubsManager/releases/latest).
+1. Download `CodexAccounts.exe` from [GitHub Releases](https://github.com/0xmdrakib/CodexSubsManager/releases/latest), or download the ZIP and extract its single `CodexAccounts.exe` file.
 2. Run it from a permanent folder on your Windows PC.
 3. Choose **Import existing** for your current Codex sign-in, or **Add account** for another official browser sign-in.
 4. Use **Switch account**, or configure automatic selection in **Preferences**.
@@ -103,7 +103,7 @@ Development requires Windows, PowerShell, and the .NET 10 SDK with `dotnet` on P
 .\build.ps1 -Test -Publish -SkipDirect
 ```
 
-Generated builds go into `artifacts/`. Quit the manager before replacing its running EXE. The existing standalone release passed 55 core regression checks, light/dark rendering checks, standalone deployment checks, and live usage-refresh verification. Live cross-account switching was not included in those automated checks.
+Generated builds go into `artifacts/`. The release ZIP contains only `CodexAccounts.exe` at its root; readable documentation and checksums remain separate build outputs. Quit the manager before replacing its running EXE. The existing standalone release passed 55 core regression checks, light/dark rendering checks, standalone deployment checks, and live usage-refresh verification. Live cross-account switching was not included in those automated checks.
 
 ## Website
 
