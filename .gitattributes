@@ -1,0 +1,8 @@
+* text=auto eol=lf
+*.cmd text eol=crlf
+*.png binary
+*.ico binary
+*.webp binary
+*.woff2 binary
+licenses/*.txt -whitespace
+website/assets/Inter-OFL.txt -whitespace

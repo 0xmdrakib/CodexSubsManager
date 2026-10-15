@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>CodexAccounts</AssemblyName>
+    <Version>1.4.0</Version>
+    <Product>Codex Accounts</Product>
+    <Description>Standalone Windows account and system tray companion for official Codex.</Description>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets/App.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup><ProjectReference Include="../CodexAccounts.Core/CodexAccounts.Core.csproj" /></ItemGroup>
+  <ItemGroup><Using Remove="System.Windows.Forms" /><Using Remove="System.Drawing" /></ItemGroup>
+  <ItemGroup><Resource Include="Assets/App.ico" /><Resource Include="Assets/Brand.png" /></ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets/Icons/*.svg" LogicalName="CodexAccounts.Icons.%(Filename).svg" />
+    <EmbeddedResource Include="../../START_HERE.md" LogicalName="CodexAccounts.Guide.txt" />
+    <EmbeddedResource Include="../../LICENSE" LogicalName="CodexAccounts.Licenses.Application.txt" />
+    <EmbeddedResource Include="../../THIRD_PARTY_NOTICES.md" LogicalName="CodexAccounts.Licenses.Notices.txt" />
+    <EmbeddedResource Include="../../licenses/*.txt" LogicalName="CodexAccounts.Licenses.%(Filename).txt" />
+  </ItemGroup>
+</Project>
